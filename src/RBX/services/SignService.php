@@ -16,15 +16,17 @@ class SignService
     }
 
     /**
-     * @param string $queryString
-     * @param array $postData
+     * @param string $urlPath
+     * @param array $queryParams
      * @return string
-     * @throws \Exception
      */
-    public function generateSign(string $queryString = '', array $postData = []): string
+    public function generateSign(string $urlPath, array $queryParams = []): string
     {
+        $data = $urlPath;
+        if (!empty($queryParams)) {
+            $data .= '?' . http_build_query($queryParams);
+        }
 
-        $data = $queryString . json_encode($postData);
         openssl_sign($data, $signature, base64_decode($this->secret_key), OPENSSL_ALGO_SHA512);
 
         return base64_encode($signature);
