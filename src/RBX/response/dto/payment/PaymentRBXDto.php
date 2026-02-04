@@ -50,6 +50,12 @@ class PaymentRBXDto extends BaseResponseRBXDto
     protected float $commission;
 
     /**
+     * Данные о зачисления средств
+     * @var array|null $accrual_info
+     */
+    protected ?array $accrual_info;
+
+    /**
      * @param CurlResponseDto $response
      * @return void
      * @throws \Exception
@@ -114,5 +120,13 @@ class PaymentRBXDto extends BaseResponseRBXDto
     public function getCommission(): float
     {
         return $this->commission;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getAccrualInfo(): ?array
+    {
+        return $this->accrual_info;
     }
 }

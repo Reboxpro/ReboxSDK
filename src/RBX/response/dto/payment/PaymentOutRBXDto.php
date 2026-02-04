@@ -50,6 +50,12 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
     protected float $totalCommission;
 
     /**
+     * Общая информация о конечном зачислении средств по созданным платежам
+     *  @var array $totalAccrualInfo
+     */
+    protected array $totalAccrualInfo;
+
+    /**
      * @var string|null $error
      */
     protected ?string $error = null;
@@ -131,5 +137,13 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
     public function getError(): ?string
     {
         return $this->error;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTotalAccrualInfo(): array
+    {
+        return $this->totalAccrualInfo;
     }
 }
