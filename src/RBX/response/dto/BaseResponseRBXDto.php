@@ -2,11 +2,13 @@
 
 namespace RBX\response\dto;
 
+use RBX\exceptions\ForbiddenException;
 use RBX\exceptions\InternalServerException;
 use RBX\exceptions\ValidationException;
 use RBX\exceptions\NotFoundException;
 use RBX\exceptions\SignAuthException;
 use RBX\exceptions\UserException;
+use RBX\helpers\HttpHelper;
 
 abstract class BaseResponseRBXDto extends BaseDto
 {
@@ -23,41 +25,46 @@ abstract class BaseResponseRBXDto extends BaseDto
      */
     public function decodeResponse(CurlResponseDto $response)
     {
-        $decodedResponse = json_decode($response->getBody(), true);
-        if ($decodedResponse == null) {
-            throw new \Exception('Не удалось распарсить ответ от сервера');
+        $responseBody = json_decode($response->getBody(), true);
+        if ($responseBody == null) {
+            $responseBody = $response->getBody();
         }
 
-        if (isset($decodedResponse['result'])) {
-            return $decodedResponse['result'];
-        }
-
-        if (isset($decodedResponse['code'])) {
-            switch ($decodedResponse['code']) {
-                case UserException::HTTP_CODE:
+        if ($responseCode = $response->getCode()) {
+            switch ($responseCode) {
+                case HttpHelper::HTTP_CODE_SUCCESS:
+                    return $responseBody['result'] ?? $responseCode;
+                case HttpHelper::HTTP_CODE_USER_ERROR:
                     throw new UserException(
-                        $decodedResponse['message'],
-                        $decodedResponse['error_data'] ?? []
+                        $responseBody['message'] ?? 'Пользовательская ошибка',
+                        $responseBody['error_data'] ?? []
                     );
-                case SignAuthException::HTTP_CODE:
+                case HttpHelper::HTTP_CODE_UNAUTHORIZED:
                     throw new SignAuthException(
-                        $decodedResponse['message'],
-                        $decodedResponse['error_data'] ?? []
+                        $responseBody['message'] ?? 'Ошибка верификации подписи',
+                        $responseBody['error_data'] ?? []
                     );
-                case NotFoundException::HTTP_CODE:
+                case HttpHelper::HTTP_CODE_NOT_FOUND:
                     throw new NotFoundException(
-                        $decodedResponse['message'],
-                        $decodedResponse['error_data'] ?? []
+                        $responseBody['message'] ?? 'Not Found',
+                        $responseBody['error_data'] ?? []
                     );
-                case ValidationException::HTTP_CODE:
+                case HttpHelper::HTTP_CODE_VALIDATION_ERROR:
                     throw new ValidationException(
-                        $decodedResponse['message'],
-                        $decodedResponse['error_data'] ?? []
+                        $responseBody['message'] ?? 'Ошибка валидации',
+                        $responseBody['error_data'] ?? []
+                    );
+                case HttpHelper::HTTP_CODE_FORBIDDEN_CODE:
+                    throw new ForbiddenException(
+                        $responseBody['message'] ?? 'Ошибка доступа',
+                        is_array($responseBody)
+                            ? $responseBody : ['data' => $responseBody]
                     );
                 default:
                     throw new InternalServerException(
-                        $decodedResponse['message'],
-                        $decodedResponse['error_data'] ?? []
+                        $responseBody['message'] ?? 'Unknown error',
+                        is_array($responseBody)
+                            ? $responseBody : ['data' => $responseBody]
                     );
             }
         }

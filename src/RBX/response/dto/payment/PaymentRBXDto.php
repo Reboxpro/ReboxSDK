@@ -56,6 +56,12 @@ class PaymentRBXDto extends BaseResponseRBXDto
     protected ?array $accrual_info;
 
     /**
+     * Причины исполнения/отклонения платежа
+     * @var array|null $reason_completion
+     */
+    protected ?array $reason_completion;
+
+    /**
      * @param CurlResponseDto $response
      * @return void
      * @throws \Exception
@@ -128,5 +134,13 @@ class PaymentRBXDto extends BaseResponseRBXDto
     public function getAccrualInfo(): ?array
     {
         return $this->accrual_info;
+    }
+
+    /**
+     * @return array
+     */
+    public function getReasonCompletion(): array
+    {
+        return $this->reason_completion;
     }
 }
