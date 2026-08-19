@@ -20,6 +20,12 @@ class PaymentRBXDto extends BaseResponseRBXDto
     protected string $chain_uid;
 
     /**
+     * Внешний идентификатор платежа
+     * @var string|null
+     */
+    protected ?string $external_id;
+
+    /**
      * Статус платежа
      * @var string $status
      */
@@ -48,6 +54,13 @@ class PaymentRBXDto extends BaseResponseRBXDto
      * @var float $commission
      */
     protected float $commission;
+
+    /**
+     * Кэшбэк
+     * @var float $cashback
+     */
+    protected float $cashback;
+
 
     /**
      * Данные о зачисления средств
@@ -91,6 +104,14 @@ class PaymentRBXDto extends BaseResponseRBXDto
     /**
      * @return string
      */
+    public function getExternalId(): string
+    {
+        return $this->external_id;
+    }
+
+    /**
+     * @return string
+     */
     public function getStatus(): string
     {
         return $this->status;
@@ -126,6 +147,14 @@ class PaymentRBXDto extends BaseResponseRBXDto
     public function getCommission(): float
     {
         return $this->commission;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCashback(): float
+    {
+        return $this->cashback;
     }
 
     /**

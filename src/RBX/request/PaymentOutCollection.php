@@ -41,6 +41,7 @@ class PaymentOutCollection extends BaseRequest
      * @param float $amount
      * @param array $params
      * @param array $files
+     * @param string|null $externalId
      * @return PaymentOutRBXDto
      * @throws \Exception
      */
@@ -48,16 +49,23 @@ class PaymentOutCollection extends BaseRequest
         int $methodId,
         float $amount,
         array $params,
-        array $files = []
+        array $files = [],
+        string $externalId = null
     ): PaymentOutRBXDto {
+        $data = [
+            'amount_payment' => $amount,
+            'payment_fields' => json_encode($params),
+        ];
+
+        if (!empty($externalId)) {
+            $data += ['external_id' => $externalId];
+        }
+
         $response = $this->execute(
             self::PATH_PAYMENT,
             self::METHOD_POST,
             ['methodId' => $methodId],
-            [
-                'amount_payment' => $amount,
-                'payment_fields' => json_encode($params),
-            ],
+            $data,
             $files,
             ['Content-Type' => 'multipart/form-data']
         );
@@ -107,16 +115,17 @@ class PaymentOutCollection extends BaseRequest
     }
 
     /**
-     * @param string $chainUid
+     * @param string|null $chainUid
+     * @param string|null $externalId
      * @return ChainPaymentRBXDto
      * @throws \Exception
      */
-    public function getChainPaymentInfo(string $chainUid): ChainPaymentRBXDto
+    public function getChainPaymentInfo(string $chainUid = null, string $externalId = null): ChainPaymentRBXDto
     {
         $response = $this->execute(
             self::PATH_CHAIN_PAYMENT,
             self::METHOD_GET,
-            ['chainUid' => $chainUid]
+            ['chainUid' => $chainUid, 'externalId' => $externalId]
         );
 
         $result = new ChainPaymentRBXDto();

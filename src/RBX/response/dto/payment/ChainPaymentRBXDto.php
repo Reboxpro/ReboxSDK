@@ -25,6 +25,7 @@ class ChainPaymentRBXDto extends BaseResponseRBXDto
             'amount_payment' => $decodedResponse['total']['amount_payment'],
             'amount' => $decodedResponse['total']['amount'],
             'commission' => $decodedResponse['total']['commission'],
+            'cashback' => $decodedResponse['total']['cashback'],
         ];
 
         foreach ($decodedResponse['payments'] as $payment) {

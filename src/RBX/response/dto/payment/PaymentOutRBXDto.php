@@ -50,6 +50,12 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
     protected float $totalCommission;
 
     /**
+     * Общий кэшбэк
+     * @var float $totalCashback
+     */
+    protected float $totalCashback;
+
+    /**
      * Общая информация о конечном зачислении средств по созданным платежам
      *  @var array $totalAccrualInfo
      */
@@ -129,6 +135,14 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
     public function getTotalCommission(): float
     {
         return $this->totalCommission;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalCashback(): float
+    {
+        return $this->totalCashback;
     }
 
     /**

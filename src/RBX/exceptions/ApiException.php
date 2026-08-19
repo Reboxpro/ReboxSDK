@@ -6,7 +6,7 @@ abstract class ApiException extends \Exception
 {
     public string $code_status;
 
-    public array $error_data;
+    public array $error_data = [];
 
     /**
      * @param string $message

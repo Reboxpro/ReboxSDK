@@ -2,6 +2,11 @@
 
 namespace RBX\response\dto;
 
+/**
+ * @property $code
+ * @property $headers
+ * @property $body
+ */
 class CurlResponseDto
 {
     /**
