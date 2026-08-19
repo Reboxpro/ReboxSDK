@@ -50,7 +50,7 @@ class PaymentOutCollection extends BaseRequest
         float $amount,
         array $params,
         array $files = [],
-        string $externalId = null
+        ?string $externalId = null
     ): PaymentOutRBXDto {
         $data = [
             'amount_payment' => $amount,
@@ -120,7 +120,7 @@ class PaymentOutCollection extends BaseRequest
      * @return ChainPaymentRBXDto
      * @throws \Exception
      */
-    public function getChainPaymentInfo(string $chainUid = null, string $externalId = null): ChainPaymentRBXDto
+    public function getChainPaymentInfo(?string $chainUid = null, ?string $externalId = null): ChainPaymentRBXDto
     {
         $response = $this->execute(
             self::PATH_CHAIN_PAYMENT,
