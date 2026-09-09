@@ -5,6 +5,7 @@ namespace RBX\request;
 use RBX\response\dto\payment\ChainPaymentRBXDto;
 use RBX\response\dto\payment\method\MethodListRBXDto;
 use RBX\response\dto\payment\PaymentFieldsRBXDto;
+use RBX\response\dto\payment\PaymentListRBXDto;
 use RBX\response\dto\payment\PaymentOutRBXDto;
 use RBX\response\dto\payment\PaymentRBXDto;
 
@@ -13,6 +14,7 @@ class PaymentOutCollection extends BaseRequest
     const
         PATH_METHOD_LIST = 'v2/payment/out/method-list',
         PATH_PAYMENT = 'v2/payment/out/payment',
+        PATH_PAYMENT_LIST = 'v2/payment/out/payment-list',
         PATH_PAYMENT_INFO = 'v2/payment/out/payment-info',
         PATH_PAYMENT_FIELDS = 'v2/payment/out/payment-fields',
         PATH_CHAIN_PAYMENT = 'v2/payment/out/chain-payment';
@@ -90,6 +92,25 @@ class PaymentOutCollection extends BaseRequest
         );
 
         $result = new PaymentFieldsRBXDto();
+        $result->parseApiResponse($response);
+
+        return $result;
+    }
+
+    /**
+     * @param array $queryParams
+     * @return PaymentListRBXDto
+     * @throws \Exception
+     */
+    public function getPaymentList(array $queryParams): PaymentListRBXDto
+    {
+        $response = $this->execute(
+            self::PATH_PAYMENT_LIST,
+            self::METHOD_GET,
+            $queryParams
+        );
+
+        $result = new PaymentListRBXDto();
         $result->parseApiResponse($response);
 
         return $result;
