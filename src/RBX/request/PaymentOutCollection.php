@@ -2,12 +2,12 @@
 
 namespace RBX\request;
 
-use RBX\response\dto\payment\ChainPaymentRBXDto;
 use RBX\response\dto\payment\method\MethodListRBXDto;
+use RBX\response\dto\payment\out\ChainPaymentRBXDto;
+use RBX\response\dto\payment\out\PaymentOutInfoRBXDto;
+use RBX\response\dto\payment\out\PaymentOutListRBXDto;
+use RBX\response\dto\payment\out\PaymentOutRBXDto;
 use RBX\response\dto\payment\PaymentFieldsRBXDto;
-use RBX\response\dto\payment\PaymentListRBXDto;
-use RBX\response\dto\payment\PaymentOutRBXDto;
-use RBX\response\dto\payment\PaymentRBXDto;
 
 class PaymentOutCollection extends BaseRequest
 {
@@ -99,10 +99,10 @@ class PaymentOutCollection extends BaseRequest
 
     /**
      * @param array $queryParams
-     * @return PaymentListRBXDto
+     * @return PaymentOutListRBXDto
      * @throws \Exception
      */
-    public function getPaymentList(array $queryParams): PaymentListRBXDto
+    public function getPaymentList(array $queryParams): PaymentOutListRBXDto
     {
         $response = $this->execute(
             self::PATH_PAYMENT_LIST,
@@ -110,7 +110,7 @@ class PaymentOutCollection extends BaseRequest
             $queryParams
         );
 
-        $result = new PaymentListRBXDto();
+        $result = new PaymentOutListRBXDto();
         $result->parseApiResponse($response);
 
         return $result;
@@ -118,10 +118,10 @@ class PaymentOutCollection extends BaseRequest
 
     /**
      * @param string $uid
-     * @return PaymentRBXDto
+     * @return PaymentOutInfoRBXDto
      * @throws \Exception
      */
-    public function getPaymentInfo(string $uid): PaymentRBXDto
+    public function getPaymentInfo(string $uid): PaymentOutInfoRBXDto
     {
         $response = $this->execute(
             self::PATH_PAYMENT_INFO,
@@ -129,7 +129,7 @@ class PaymentOutCollection extends BaseRequest
             ['uid' => $uid]
         );
 
-        $result = new PaymentRBXDto();
+        $result = new PaymentOutInfoRBXDto();
         $result->parseApiResponse($response);
 
         return $result;

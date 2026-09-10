@@ -1,6 +1,6 @@
 <?php
 
-namespace RBX\response\dto\payment;
+namespace RBX\response\dto\payment\out;
 
 use RBX\response\dto\BaseResponseRBXDto;
 use RBX\response\dto\CurlResponseDto;

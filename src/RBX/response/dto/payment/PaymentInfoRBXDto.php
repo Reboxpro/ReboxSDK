@@ -5,7 +5,7 @@ namespace RBX\response\dto\payment;
 use RBX\response\dto\BaseResponseRBXDto;
 use RBX\response\dto\CurlResponseDto;
 
-class PaymentRBXDto extends BaseResponseRBXDto
+class PaymentInfoRBXDto extends BaseResponseRBXDto
 {
     /**
      * UID платежа
@@ -36,6 +36,12 @@ class PaymentRBXDto extends BaseResponseRBXDto
      * @var int $currency_id
      */
     protected int $currency_id;
+
+    /**
+     * ID метода платежа
+     * @var int $method_id
+     */
+    protected int $method_id;
 
     /**
      * Сумма платежа
@@ -73,6 +79,18 @@ class PaymentRBXDto extends BaseResponseRBXDto
      * @var array|null $reason_completion
      */
     protected ?array $reason_completion;
+
+    /**
+     * Создан
+     * @var string $created_at
+     */
+    protected string $created_at;
+
+    /**
+     * Обновлен
+     * @var string $updated_at
+     */
+    protected string $updated_at;
 
     /**
      * @param CurlResponseDto $response
@@ -126,6 +144,14 @@ class PaymentRBXDto extends BaseResponseRBXDto
     }
 
     /**
+     * @return int
+     */
+    public function getMethodId(): int
+    {
+        return $this->method_id;
+    }
+
+    /**
      * @return float
      */
     public function getAmountPayment(): float
@@ -171,5 +197,21 @@ class PaymentRBXDto extends BaseResponseRBXDto
     public function getReasonCompletion(): array
     {
         return $this->reason_completion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt(): string
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt(): string
+    {
+        return $this->updated_at;
     }
 }

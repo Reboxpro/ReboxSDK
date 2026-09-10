@@ -1,13 +1,13 @@
 <?php
 
-namespace RBX\response\dto\payment;
+namespace RBX\response\dto\payment\out;
 
 use RBX\response\dto\BaseResponseRBXDto;
 use RBX\response\dto\CurlResponseDto;
 
-class PaymentListRBXDto extends BaseResponseRBXDto
+class PaymentOutListRBXDto extends BaseResponseRBXDto
 {
-    /** @var PaymentRBXDto[] $list */
+    /** @var PaymentOutInfoRBXDto[] $list */
     protected array $list = [];
 
     /**
@@ -19,7 +19,7 @@ class PaymentListRBXDto extends BaseResponseRBXDto
     {
         $decodedResponse = $this->decodeResponse($response);
         foreach ($decodedResponse as $attributes) {
-            $paymentFieldDto = new PaymentRBXDto();
+            $paymentFieldDto = new PaymentOutInfoRBXDto();
             $paymentFieldDto->setAttributes($attributes);
             $this->list[] = $paymentFieldDto;
         }
