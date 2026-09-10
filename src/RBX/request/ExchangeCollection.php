@@ -13,11 +13,21 @@ class ExchangeCollection extends BaseRequest
 
     /**
      * @param array $queryParams
+     * @param int $page
+     * @param int $count
      * @return ExchangeListRBXDto
      * @throws \Exception
      */
-    public function getExchangeList(array $queryParams = []): ExchangeListRBXDto
+    public function getExchangeList(array $queryParams = [], int $page = 1, int $count = 50): ExchangeListRBXDto
     {
+        $queryParams = array_merge(
+            $queryParams,
+            [
+                'page' => $page,
+                'per-page' => $count
+            ]
+        );
+
         $response = $this->execute(
             self::PATH_EXCHANGE_LIST,
             self::METHOD_GET,

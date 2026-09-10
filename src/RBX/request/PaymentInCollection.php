@@ -64,15 +64,25 @@ class PaymentInCollection extends BaseRequest
 
     /**
      * @param array $queryParams
+     * @param int $page
+     * @param int $count
      * @return PaymentInListRBXDto
      * @throws \Exception
      */
-    public function getPaymentList(array $queryParams): PaymentInListRBXDto
+    public function getPaymentList(array $queryParams = [], int $page = 1, int $count = 50): PaymentInListRBXDto
     {
+        $queryParams = array_merge(
+            $queryParams,
+            [
+                'page' => $page,
+                'per-page' => $count
+            ]
+        );
+
         $response = $this->execute(
             self::PATH_PAYMENT_LIST,
             self::METHOD_GET,
-            $queryParams
+            $queryParams,
         );
 
         $result = new PaymentInListRBXDto();
@@ -103,15 +113,25 @@ class PaymentInCollection extends BaseRequest
 
     /**
      * @param array $queryParams
+     * @param int $page
+     * @param int $count
      * @return RewardListRBXDto
      * @throws \Exception
      */
-    public function getRewardList(array $queryParams): RewardListRBXDto
+    public function getRewardList(array $queryParams = [], int $page = 1, int $count = 50): RewardListRBXDto
     {
+        $queryParams = array_merge(
+            $queryParams,
+            [
+                'page' => $page,
+                'per-page' => $count
+            ]
+        );
+
         $response = $this->execute(
             self::PATH_REWARD_LIST,
             self::METHOD_GET,
-            $queryParams
+            $queryParams,
         );
 
         $result = new RewardListRBXDto();
