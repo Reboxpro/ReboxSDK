@@ -7,7 +7,7 @@ use RBX\response\dto\CurlResponseRBXDto;
 
 class ExchangeRBXDto extends BaseResponseRBXDto
 {
-    protected string $uid;
+    protected ?string $uid = null;
 
     /**
      * @param CurlResponseRBXDto $response

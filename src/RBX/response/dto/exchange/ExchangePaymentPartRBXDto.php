@@ -7,53 +7,53 @@ use RBX\response\dto\BaseRBXDto;
 class ExchangePaymentPartRBXDto extends BaseRBXDto
 {
     /**
-     * @var int $currency_id
+     * @var int|null $currency_id
      */
-    protected int $currency_id;
+    protected ?int $currency_id = null;
 
     /**
-     * @var string $currency_code
+     * @var string|null $currency_code
      */
-    protected string $currency_code;
+    protected ?string $currency_code = null;
 
     /**
-     * @var float $amount
+     * @var float|null $amount
      */
-    protected float $amount;
+    protected ?float $amount = null;
 
     /**
-     * @var string $status
+     * @var string|null $status
      */
-    protected string $status;
+    protected ?string $status = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCurrencyId(): int
+    public function getCurrencyId(): ?int
     {
         return $this->currency_id;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode(): ?string
     {
         return $this->currency_code;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->amount;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }

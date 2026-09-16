@@ -7,42 +7,42 @@ use RBX\response\dto\BaseRBXDto;
 class PaymentFieldRBXDto extends BaseRBXDto
 {
     /**
-     * @var string $code
+     * @var string|null $code
      */
-    public string $code;
+    public ?string $code = null;
 
     /**
-     * @var string $title
+     * @var string|null $title
      */
-    public string $title;
+    public ?string $title = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public string $type;
+    public ?string $type = null;
 
     /**
      * @var string|null $label
      */
-    public ?string $label;
+    public ?string $label = null;
 
     /**
      * @var string|null $mask
      */
-    public ?string $mask;
+    public ?string $mask = null;
 
     /**
      * @var string|null $regexp
      */
-    public ?string $regexp;
+    public ?string $regexp = null;
 
     /**
      * @var int|null $minLen
      */
-    public ?int $minLen;
+    public ?int $minLen = null;
 
     /**
      * @var int|null $maxLen
      */
-    public ?int $maxLen;
+    public ?int $maxLen = null;
 }

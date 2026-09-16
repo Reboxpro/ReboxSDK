@@ -9,94 +9,87 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
 {
     /**
      * UID платежа
-     * @var string $uid
+     * @var string|null $uid
      */
-    protected string $uid;
+    protected ?string $uid = null;
 
     /**
      * UID цепочки платежа
-     * @var string $chain_uid
+     * @var string|null $chain_uid
      */
-    protected string $chain_uid;
+    protected ?string $chain_uid = null;
 
     /**
      * Статус платежа
-     * @var string $status
+     * @var string|null $status
      */
-    protected string $status;
+    protected ?string $status = null;
 
     /**
      * ID валюты
-     * @var int $currency_id
+     * @var int|null $currency_id
      */
-    protected int $currency_id;
+    protected ?int $currency_id = null;
 
     /**
      * ID метода платежа
-     * @var int $method_id
+     * @var int|null $method_id
      */
-    protected int $method_id;
+    protected ?int $method_id = null;
 
     /**
      * Сумма платежа
-     * @var float $amount_payment
+     * @var float|null $amount_payment
      */
-    protected float $amount_payment;
+    protected ?float $amount_payment = null;
 
     /**
      * Конечная сумма с учетом комиссий
-     * @var float $amount
+     * @var float|null $amount
      */
-    protected float $amount;
+    protected ?float $amount = null;
 
     /**
      * Комиссия
-     * @var float $commission
+     * @var float|null $commission
      */
-    protected float $commission;
-
-    /**
-     * Кэшбэк
-     * @var float $cashback
-     */
-    protected float $cashback;
-
+    protected ?float $commission = null;
 
     /**
      * Данные о зачисления средств
      * @var array|null $accrual_info
      */
-    protected ?array $accrual_info;
+    protected ?array $accrual_info = null;
 
     /**
      * Комментарий
      * @var string|null $comment
      */
-    protected ?string $comment;
+    protected ?string $comment = null;
 
     /**
      * Причины исполнения/отклонения платежа
      * @var array|null $reason_completion
      */
-    protected ?array $reason_completion;
+    protected ?array $reason_completion = null;
 
     /**
      * Подробности платежа
      * @var array|null $details
      */
-    protected ?array $details;
+    protected ?array $details = null;
 
     /**
      * Создан
-     * @var string $created_at
+     * @var string|null $created_at
      */
-    protected string $created_at;
+    protected ?string $created_at = null;
 
     /**
      * Обновлен
-     * @var string $updated_at
+     * @var string|null $updated_at
      */
-    protected string $updated_at;
+    protected ?string $updated_at = null;
 
     /**
      * @param CurlResponseRBXDto $response
@@ -110,75 +103,67 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUid(): string
+    public function getUid(): ?string
     {
         return $this->uid;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getChainUid(): string
+    public function getChainUid(): ?string
     {
         return $this->chain_uid;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCurrencyId(): int
+    public function getCurrencyId(): ?int
     {
         return $this->currency_id;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMethodId(): int
+    public function getMethodId(): ?int
     {
         return $this->method_id;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getAmountPayment(): float
+    public function getAmountPayment(): ?float
     {
         return $this->amount_payment;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->amount;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getCommission(): float
+    public function getCommission(): ?float
     {
         return $this->commission;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCashback(): float
-    {
-        return $this->cashback;
     }
 
     /**
@@ -198,9 +183,9 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getReasonCompletion(): array
+    public function getReasonCompletion(): ?array
     {
         return $this->reason_completion;
     }
@@ -214,17 +199,17 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->updated_at;
     }

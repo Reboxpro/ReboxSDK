@@ -8,43 +8,43 @@ class MethodRBXDto extends BaseRBXDto
 {
     /**
      * ID метода платежа
-     * @var int $id
+     * @var int|null $id
      */
-    public int $id;
+    public ?int $id = null;
 
     /**
      * Код метода платежа
-     * @var string $code
+     * @var string|null $code
      */
-    public string $code;
+    public ?string $code = null;
 
     /**
      * Название метода платежа
-     * @var string $name
+     * @var string|null $name
      */
-    public string $name;
+    public ?string $name = null;
 
     /**
      * Описание метода платежа
-     * @var string $description
+     * @var string|null $description
      */
-    public string $description;
+    public ?string $description = null;
 
     /**
      * ID валюты
-     * @var int $currency_id
+     * @var int|null $currency_id
      */
-    public int $currency_id;
+    public ?int $currency_id = null;
 
     /**
      * Минимальный размер платежа
-     * @var float $min_amount
+     * @var float|null $min_amount
      */
-    public float $min_amount;
+    public ?float $min_amount = null;
 
     /**
      * Лимит платежа
-     * @var float $max_amount
+     * @var float|null $max_amount
      */
-    public float $max_amount;
+    public ?float $max_amount = null;
 }

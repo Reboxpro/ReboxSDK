@@ -8,13 +8,13 @@ class WalletRBXDto extends BaseRBXDto
 {
     /**
      * ID валюты
-     * @var  int $currency_id
+     * @var  int|null $currency_id
      */
-    public int $currency_id;
+    public ?int $currency_id = null;
 
     /**
      * Сумма кошелька
-     * @var float $amount
+     * @var float|null $amount
      */
-    public float $amount;
+    public ?float $amount = null;
 }

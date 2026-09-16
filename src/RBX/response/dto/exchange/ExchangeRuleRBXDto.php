@@ -7,40 +7,40 @@ use RBX\response\dto\BaseRBXDto;
 class ExchangeRuleRBXDto extends BaseRBXDto
 {
     /**
-     * @var float $commission
+     * @var float|null $commission
      */
-    protected float $commission;
+    protected ?float $commission = null;
 
     /**
-     * @var float $rate_from
+     * @var float|null $rate_from
      */
-    protected float $rate_from;
+    protected ?float $rate_from = null;
 
     /**
-     * @var float $rate_to
+     * @var float|null $rate_to
      */
-    protected float $rate_to;
+    protected ?float $rate_to = null;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getCommission(): float
+    public function getCommission(): ?float
     {
         return $this->commission;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getRateFrom(): float
+    public function getRateFrom(): ?float
     {
         return $this->rate_from;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getRateTo(): float
+    public function getRateTo(): ?float
     {
         return $this->rate_to;
     }

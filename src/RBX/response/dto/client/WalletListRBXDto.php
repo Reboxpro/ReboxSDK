@@ -8,7 +8,7 @@ use RBX\response\dto\CurlResponseRBXDto;
 class WalletListRBXDto extends BaseResponseRBXDto
 {
     /** @var WalletRBXDto[] $list */
-    protected array $list;
+    protected array $list = [];
 
     /**
      * @param CurlResponseRBXDto $response

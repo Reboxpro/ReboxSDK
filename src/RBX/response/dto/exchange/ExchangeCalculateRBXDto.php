@@ -7,7 +7,7 @@ use RBX\response\dto\CurlResponseRBXDto;
 
 class ExchangeCalculateRBXDto extends BaseResponseRBXDto
 {
-    protected float $amount;
+    protected ?float $amount = null;
 
     /**
      * @param CurlResponseRBXDto $response

@@ -8,19 +8,19 @@ class CurrencyRBXDto extends BaseRBXDto
 {
     /**
      * ID валюты
-     * @var int $id
+     * @var int|null $id
      */
-    public int $id;
+    public ?int $id = null;
 
     /**
      * Код валюты
-     * @var string $code
+     * @var string|null $code
      */
-    public string $code;
+    public ?string $code = null;
 
     /**
      * Название валюты
-     * @var string $title
+     * @var string|null $title
      */
-    public string $title;
+    public ?string $title = null;
 }

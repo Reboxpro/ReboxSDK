@@ -12,7 +12,13 @@ abstract class BaseRBXDto
     {
         foreach ($attributes as $property => $value) {
             if (property_exists($this, $property)) {
-                $this->$property = $value;
+                if (is_object($this->$property)) {
+                    if ($this->$property instanceof BaseRBXDto) {
+                        $this->$property->setAttributes($value);
+                    }
+                } else {
+                    $this->$property = $value;
+                }
             }
         }
     }

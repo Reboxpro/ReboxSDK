@@ -9,9 +9,9 @@ class CryptoAddressRBXDto extends BaseResponseRBXDto
 {
     /**
      * Адрес криптовалюты
-     * @var string $crypto_address
+     * @var string|null $crypto_address
      */
-    protected string $crypto_address;
+    protected ?string $crypto_address = null;
 
     /**
      * @param CurlResponseRBXDto $response

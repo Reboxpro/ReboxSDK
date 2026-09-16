@@ -9,57 +9,57 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
 {
     /**
      * UID цепочки платежей
-     * @var string $chain_uid
+     * @var string|null $chain_uid
      */
-    protected string $chain_uid;
+    protected ?string $chain_uid = null;
 
     /**
      * Код статус платежа
-     * @var int $code
+     * @var int|null $code
      */
-    protected int $code;
+    protected ?int $code = null;
 
     /**
      * Кол-во платежей
-     * @var float $total
+     * @var float|null $total
      */
-    protected float $total;
+    protected ?float $total = null;
 
     /**
      * Список успешно созданных платежей
-     * @var array $success
+     * @var array|null $success
      */
-    protected array $payments;
+    protected ?array $payments = null;
 
     /**
      * Общая сумма с учетом комиссии
-     * @var float $totalAmount
+     * @var float|null $totalAmount
      */
-    protected float $totalAmount;
+    protected ?float $totalAmount = null;
 
     /**
      * Общая сумма платежа
-     * @var float $totalAmountPayment
+     * @var float|null $totalAmountPayment
      */
-    protected float $totalAmountPayment;
+    protected ?float $totalAmountPayment = null;
 
     /**
      * Общая комиссия
-     * @var float $totalCommission
+     * @var float|null $totalCommission
      */
-    protected float $totalCommission;
+    protected ?float $totalCommission = null;
 
     /**
      * Общий кэшбэк
-     * @var float $totalCashback
+     * @var float|null $totalCashback
      */
-    protected float $totalCashback;
+    protected ?float $totalCashback = null;
 
     /**
      * Общая информация о конечном зачислении средств по созданным платежам
-     *  @var array $totalAccrualInfo
+     *  @var array|null $totalAccrualInfo
      */
-    protected array $totalAccrualInfo;
+    protected ?array $totalAccrualInfo = null;
 
     /**
      * @var string|null $error
@@ -79,68 +79,70 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
 
     /**
      * UID цепочки платежей
-     * @return string
+     * @return string|null
      */
-    public function getChainUid(): string
+    public function getChainUid(): ?string
     {
         return $this->chain_uid;
     }
 
     /**
      * Код платежа (промежуточный статус платежа)
-     * @return int
+     * @return int|null
      */
-    public function getCode(): int
+    public function getCode(): ?int
     {
         return $this->code;
     }
 
     /**
      * Общая сумма платежа
-     * @return float
+     *
+     * @return float|null
      */
-    public function getTotal(): float
+    public function getTotal(): ?float
     {
         return $this->total;
     }
 
     /**
      * Список успешно созданных платежей
-     * @return array
+     *
+     * @return array|null
      */
-    public function getPaymentList(): array
+    public function getPaymentList(): ?array
     {
         return $this->payments;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTotalAmount(): float
+    public function getTotalAmount(): ?float
     {
         return $this->totalAmount;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTotalAmountPayment(): float
+    public function getTotalAmountPayment(): ?float
     {
         return $this->totalAmountPayment;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTotalCommission(): float
+    public function getTotalCommission(): ?float
     {
         return $this->totalCommission;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTotalCashback(): float
+    public function getTotalCashback(): ?float
     {
         return $this->totalCashback;
     }
@@ -154,9 +156,9 @@ class PaymentOutRBXDto extends BaseResponseRBXDto
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getTotalAccrualInfo(): array
+    public function getTotalAccrualInfo(): ?array
     {
         return $this->totalAccrualInfo;
     }

@@ -6,30 +6,30 @@ use RBX\response\dto\BaseRBXDto;
 
 class ExchangeRateRBXDto extends BaseRBXDto
 {
-    protected int $currency_id;
-    protected float $pay;
-    protected float $sold;
+    protected ?int $currency_id = null;
+    protected ?float $pay = null;
+    protected ?float $sold = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCurrencyId(): int
+    public function getCurrencyId(): ?int
     {
         return $this->currency_id;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPay(): float
+    public function getPay(): ?float
     {
         return $this->pay;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getSold(): float
+    public function getSold(): ?float
     {
         return $this->sold;
     }

@@ -7,12 +7,12 @@ use RBX\response\dto\CurlResponseRBXDto;
 
 class ExchangeInfoRBXDto extends BaseResponseRBXDto
 {
-    protected string $uid;
-    protected ExchangePaymentPartRBXDto $out;
+    protected ?string $uid = null;
+    protected ?ExchangePaymentPartRBXDto $out = null;
     protected ?ExchangePaymentPartRBXDto $in = null;
-    protected ExchangeRuleRBXDto $rules;
-    protected string $created_at;
-    protected string $updated_at;
+    protected ?ExchangeRuleRBXDto $rules = null;
+    protected ?string $created_at = null;
+    protected ?string $updated_at = null;
 
     public function __construct()
     {
@@ -30,56 +30,52 @@ class ExchangeInfoRBXDto extends BaseResponseRBXDto
     {
         $decodedResponse = $this->decodeResponse($response);
         $this->setAttributes($decodedResponse);
-
-        $this->out->setAttributes($decodedResponse['out']);
-        $this->in->setAttributes($decodedResponse['in']);
-        $this->rules->setAttributes($decodedResponse['rules']);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUid(): string
+    public function getUid(): ?string
     {
         return $this->uid;
     }
 
     /**
-     * @return ExchangePaymentPartRBXDto
+     * @return ExchangePaymentPartRBXDto|null
      */
-    public function getOut(): ExchangePaymentPartRBXDto
+    public function getOut(): ?ExchangePaymentPartRBXDto
     {
         return $this->out;
     }
 
     /**
-     * @return ExchangePaymentPartRBXDto
+     * @return ExchangePaymentPartRBXDto|null
      */
-    public function getIn(): ExchangePaymentPartRBXDto
+    public function getIn(): ?ExchangePaymentPartRBXDto
     {
         return $this->in;
     }
 
     /**
-     * @return ExchangeRuleRBXDto
+     * @return ExchangeRuleRBXDto|null
      */
-    public function getRules(): ExchangeRuleRBXDto
+    public function getRules(): ?ExchangeRuleRBXDto
     {
         return $this->rules;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->created_at;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->updated_at;
     }

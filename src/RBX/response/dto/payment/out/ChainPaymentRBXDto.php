@@ -8,10 +8,10 @@ use RBX\response\dto\CurlResponseRBXDto;
 class ChainPaymentRBXDto extends BaseResponseRBXDto
 {
     /** @var PaymentOutInfoRBXDto[] $_payments */
-    protected array $payments;
+    protected array $payments = [];
 
-    /** @var array $total */
-    protected array $total;
+    /** @var array|null $total */
+    protected array $total = [];
 
     /**
      * @param CurlResponseRBXDto $response
