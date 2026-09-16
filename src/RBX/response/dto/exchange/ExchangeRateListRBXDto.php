@@ -1,15 +1,13 @@
 <?php
 
-namespace RBX\response\dto\payment\method;
+namespace RBX\response\dto\exchange;
 
 use RBX\response\dto\BaseResponseRBXDto;
 use RBX\response\dto\CurlResponseRBXDto;
 
-class MethodListRBXDto extends BaseResponseRBXDto
+class ExchangeRateListRBXDto extends BaseResponseRBXDto
 {
-    /**
-     * @var MethodRBXDto[] $list
-     */
+    /** @var ExchangeRateRBXDto[] $list */
     protected array $list = [];
 
     /**
@@ -21,9 +19,9 @@ class MethodListRBXDto extends BaseResponseRBXDto
     {
         $decodedResponse = $this->decodeResponse($response);
         foreach ($decodedResponse as $attributes) {
-            $methodDto = new MethodRBXDto();
-            $methodDto->setAttributes($attributes);
-            $this->list [] = $methodDto;
+            $paymentFieldDto = new ExchangeRateRBXDto();
+            $paymentFieldDto->setAttributes($attributes);
+            $this->list[] = $paymentFieldDto;
         }
     }
 

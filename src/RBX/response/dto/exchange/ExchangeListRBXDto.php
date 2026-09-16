@@ -3,23 +3,23 @@
 namespace RBX\response\dto\exchange;
 
 use RBX\response\dto\BaseResponseRBXDto;
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 
 class ExchangeListRBXDto extends BaseResponseRBXDto
 {
-    /** @var ExchangeRBXDto[] $list */
+    /** @var ExchangeInfoRBXDto[] $list */
     protected array $list = [];
 
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return void
      * @throws \Exception
      */
-    public function parseApiResponse(CurlResponseDto $response): void
+    public function parseApiResponse(CurlResponseRBXDto $response): void
     {
         $decodedResponse = $this->decodeResponse($response);
         foreach ($decodedResponse as $attributes) {
-            $paymentFieldDto = new ExchangeRBXDto();
+            $paymentFieldDto = new ExchangeInfoRBXDto();
             $paymentFieldDto->setAttributes($attributes);
             $this->list[] = $paymentFieldDto;
         }

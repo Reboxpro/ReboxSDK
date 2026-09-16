@@ -3,7 +3,7 @@
 namespace RBX\response\dto\payment;
 
 use RBX\response\dto\BaseResponseRBXDto;
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 
 class PaymentInfoRBXDto extends BaseResponseRBXDto
 {
@@ -75,10 +75,22 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     protected ?array $accrual_info;
 
     /**
+     * Комментарий
+     * @var string|null $comment
+     */
+    protected ?string $comment;
+
+    /**
      * Причины исполнения/отклонения платежа
      * @var array|null $reason_completion
      */
     protected ?array $reason_completion;
+
+    /**
+     * Подробности платежа
+     * @var array|null $details
+     */
+    protected ?array $details;
 
     /**
      * Создан
@@ -93,11 +105,11 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     protected string $updated_at;
 
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return void
      * @throws \Exception
      */
-    public function parseApiResponse(CurlResponseDto $response): void
+    public function parseApiResponse(CurlResponseRBXDto $response): void
     {
         $decodedResponse = $this->decodeResponse($response);
         $this->setAttributes($decodedResponse);
@@ -192,11 +204,27 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
+     * @return string|null
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
      * @return array
      */
     public function getReasonCompletion(): array
     {
         return $this->reason_completion;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getDetails(): ?array
+    {
+        return $this->details;
     }
 
     /**

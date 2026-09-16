@@ -7,7 +7,7 @@ namespace RBX\response\dto;
  * @property $headers
  * @property $body
  */
-class CurlResponseDto
+class CurlResponseRBXDto
 {
     /**
      * HTTP код ответа

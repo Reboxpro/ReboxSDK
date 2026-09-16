@@ -3,7 +3,7 @@
 namespace RBX\response\dto\payment\out;
 
 use RBX\response\dto\BaseResponseRBXDto;
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 
 class ChainPaymentRBXDto extends BaseResponseRBXDto
 {
@@ -14,11 +14,11 @@ class ChainPaymentRBXDto extends BaseResponseRBXDto
     protected array $total;
 
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return void
      * @throws \Exception
      */
-    public function parseApiResponse(CurlResponseDto $response): void
+    public function parseApiResponse(CurlResponseRBXDto $response): void
     {
         $decodedResponse = $this->decodeResponse($response);
         $this->total = [

@@ -1,13 +1,13 @@
 <?php
 
-namespace RBX\response\dto\client;
+namespace RBX\response\dto\exchange;
 
 use RBX\response\dto\BaseResponseRBXDto;
 use RBX\response\dto\CurlResponseRBXDto;
 
-class BalanceRBXDto extends BaseResponseRBXDto
+class ExchangeCalculateRBXDto extends BaseResponseRBXDto
 {
-    protected float $balance = 0;
+    protected float $amount;
 
     /**
      * @param CurlResponseRBXDto $response
@@ -16,11 +16,7 @@ class BalanceRBXDto extends BaseResponseRBXDto
      */
     public function parseApiResponse(CurlResponseRBXDto $response): void
     {
-        $this->balance = $this->decodeResponse($response);
-    }
-
-    public function getBalance(): float
-    {
-        return $this->balance;
+        $decodedResponse = $this->decodeResponse($response);
+        $this->amount = floatval($decodedResponse);
     }
 }

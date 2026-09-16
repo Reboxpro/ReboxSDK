@@ -2,9 +2,9 @@
 
 namespace RBX\response\dto\client;
 
-use RBX\response\dto\BaseDto;
+use RBX\response\dto\BaseRBXDto;
 
-class WalletRBXDto extends BaseDto
+class WalletRBXDto extends BaseRBXDto
 {
     /**
      * ID валюты

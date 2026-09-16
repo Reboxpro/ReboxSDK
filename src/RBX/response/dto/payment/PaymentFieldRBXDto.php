@@ -2,9 +2,9 @@
 
 namespace RBX\response\dto\payment;
 
-use RBX\response\dto\BaseDto;
+use RBX\response\dto\BaseRBXDto;
 
-class PaymentFieldRBXDto extends BaseDto
+class PaymentFieldRBXDto extends BaseRBXDto
 {
     /**
      * @var string $code

@@ -10,20 +10,20 @@ use RBX\exceptions\SignAuthException;
 use RBX\exceptions\UserException;
 use RBX\helpers\HttpHelper;
 
-abstract class BaseResponseRBXDto extends BaseDto
+abstract class BaseResponseRBXDto extends BaseRBXDto
 {
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return void
      */
-    abstract public function parseApiResponse(CurlResponseDto $response): void;
+    abstract public function parseApiResponse(CurlResponseRBXDto $response): void;
 
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return mixed
      * @throws \Exception
      */
-    public function decodeResponse(CurlResponseDto $response)
+    public function decodeResponse(CurlResponseRBXDto $response)
     {
         $responseBody = json_decode($response->getBody(), true);
         if ($responseBody == null) {

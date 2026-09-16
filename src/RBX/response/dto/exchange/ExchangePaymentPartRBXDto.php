@@ -2,9 +2,9 @@
 
 namespace RBX\response\dto\exchange;
 
-use RBX\response\dto\BaseDto;
+use RBX\response\dto\BaseRBXDto;
 
-class ExchangePaymentPartRBXDto extends BaseDto
+class ExchangePaymentPartRBXDto extends BaseRBXDto
 {
     /**
      * @var int $currency_id

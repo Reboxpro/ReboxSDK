@@ -2,7 +2,7 @@
 
 namespace RBX\client;
 
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 use RBX\helpers\RawHeaderParser;
 
 class CurlClient
@@ -23,7 +23,7 @@ class CurlClient
      * @param array $httpBody Тело запроса
      * @param array $headers Массив заголовков запроса
      *
-     * @return CurlResponseDto
+     * @return CurlResponseRBXDto
      * @throws \Exception
      */
     public function call(
@@ -32,7 +32,7 @@ class CurlClient
         array $queryParams = [],
         array $httpBody = [],
         array $headers = []
-    ): CurlResponseDto {
+    ): CurlResponseRBXDto {
         $headers = array_merge($this->defaultHeaders, $headers);
 
         $url = $this->prepareUrl($path, $queryParams);
@@ -41,7 +41,7 @@ class CurlClient
         list($httpHeaders, $httpBody, $responseInfo) = $this->sendRequest();
         $this->closeCurlConnection();
 
-        return new CurlResponseDto(
+        return new CurlResponseRBXDto(
             $responseInfo['http_code'],
             $httpHeaders,
             $httpBody

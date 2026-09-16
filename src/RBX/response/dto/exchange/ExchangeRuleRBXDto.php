@@ -2,9 +2,9 @@
 
 namespace RBX\response\dto\exchange;
 
-use RBX\response\dto\BaseDto;
+use RBX\response\dto\BaseRBXDto;
 
-class ExchangeRuleRBXDto extends BaseDto
+class ExchangeRuleRBXDto extends BaseRBXDto
 {
     /**
      * @var float $commission

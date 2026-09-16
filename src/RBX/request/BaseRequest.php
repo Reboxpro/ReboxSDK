@@ -2,7 +2,7 @@
 
 namespace RBX\request;
 
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 use RBX\services\SignService;
 use RBX\client\CurlClient;
 
@@ -39,7 +39,7 @@ class BaseRequest
      * @param array $data
      * @param array $files
      * @param array $headers
-     * @return CurlResponseDto
+     * @return CurlResponseRBXDto
      * @throws \Exception
      */
     protected function execute(
@@ -49,7 +49,7 @@ class BaseRequest
         array $data = [],
         array $files = [],
         array $headers = []
-    ): CurlResponseDto {
+    ): CurlResponseRBXDto {
         $signService = new SignService($this->secretKey);
         $headers = array_merge($headers, [
             'Header-Serial' => $this->serial,

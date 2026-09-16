@@ -2,7 +2,7 @@
 
 namespace RBX\response\dto;
 
-abstract class BaseDto
+abstract class BaseRBXDto
 {
     /**
      * @param array $attributes

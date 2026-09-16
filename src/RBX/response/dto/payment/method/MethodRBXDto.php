@@ -2,9 +2,9 @@
 
 namespace RBX\response\dto\payment\method;
 
-use RBX\response\dto\BaseDto;
+use RBX\response\dto\BaseRBXDto;
 
-class MethodRBXDto extends BaseDto
+class MethodRBXDto extends BaseRBXDto
 {
     /**
      * ID метода платежа

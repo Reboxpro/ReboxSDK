@@ -3,7 +3,7 @@
 namespace RBX\response\dto\payment;
 
 use RBX\response\dto\BaseResponseRBXDto;
-use RBX\response\dto\CurlResponseDto;
+use RBX\response\dto\CurlResponseRBXDto;
 
 class CryptoAddressRBXDto extends BaseResponseRBXDto
 {
@@ -14,11 +14,11 @@ class CryptoAddressRBXDto extends BaseResponseRBXDto
     protected string $crypto_address;
 
     /**
-     * @param CurlResponseDto $response
+     * @param CurlResponseRBXDto $response
      * @return void
      * @throws \Exception
      */
-    public function parseApiResponse(CurlResponseDto $response): void
+    public function parseApiResponse(CurlResponseRBXDto $response): void
     {
         $this->crypto_address = $this->decodeResponse($response);
     }
