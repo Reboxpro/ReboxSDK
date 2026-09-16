@@ -2,6 +2,7 @@
 
 namespace RBX\client;
 
+use RBX\request\ExchangeCollection;
 use RBX\request\PaymentOutCollection;
 use RBX\request\PaymentInCollection;
 use RBX\request\ReferenceCollection;
@@ -53,6 +54,14 @@ class RBXApiClient
     public function paymentIn(): PaymentInCollection
     {
         return $this->createCollection(PaymentInCollection::class);
+    }
+
+    /**
+     * @return ExchangeCollection
+     */
+    public function exchange(): ExchangeCollection
+    {
+        return $this->createCollection(ExchangeCollection::class);
     }
 
     /**
