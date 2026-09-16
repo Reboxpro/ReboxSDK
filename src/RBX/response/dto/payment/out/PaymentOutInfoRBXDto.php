@@ -13,10 +13,24 @@ class PaymentOutInfoRBXDto extends PaymentInfoRBXDto
     protected float $cashback;
 
     /**
+     * Внешний идентификатор платежа
+     * @var string|null
+     */
+    protected ?string $external_id;
+
+    /**
      * @return float
      */
     public function getCashback(): float
     {
         return $this->cashback;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalId(): string
+    {
+        return $this->external_id;
     }
 }

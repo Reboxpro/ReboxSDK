@@ -20,12 +20,6 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     protected string $chain_uid;
 
     /**
-     * Внешний идентификатор платежа
-     * @var string|null
-     */
-    protected ?string $external_id;
-
-    /**
      * Статус платежа
      * @var string $status
      */
@@ -129,14 +123,6 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     public function getChainUid(): string
     {
         return $this->chain_uid;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExternalId(): string
-    {
-        return $this->external_id;
     }
 
     /**
