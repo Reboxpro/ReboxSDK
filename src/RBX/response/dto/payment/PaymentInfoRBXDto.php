@@ -32,10 +32,22 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     protected ?int $currency_id = null;
 
     /**
+     * Код валюты
+     * @var string|null $currency_code
+     */
+    protected ?string $currency_code = null;
+
+    /**
      * ID метода платежа
      * @var int|null $method_id
      */
     protected ?int $method_id = null;
+
+    /**
+     * Название метода платежа
+     * @var string|null $method_id
+     */
+    protected ?string $method_name = null;
 
     /**
      * Сумма платежа
@@ -135,11 +147,27 @@ class PaymentInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
+     * @return string|null
+     */
+    public function getCurrencyCode(): ?string
+    {
+        return $this->currency_code;
+    }
+
+    /**
      * @return int|null
      */
     public function getMethodId(): ?int
     {
         return $this->method_id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMethodName(): ?string
+    {
+        return $this->method_name;
     }
 
     /**
