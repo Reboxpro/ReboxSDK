@@ -18,14 +18,20 @@ class ExchangeCollection extends BaseRequest
         PATH_EXCHANGE_RATES     = 'v2/exchange/rates';
 
     /**
+     * @param int $currencyId
+     * @param float $amount
      * @return ExchangeRateListRBXDto
      * @throws \Exception
      */
-    public function getRates(): ExchangeRateListRBXDto
+    public function getRates(int $currencyId, float $amount = 1): ExchangeRateListRBXDto
     {
         $response = $this->execute(
             self::PATH_EXCHANGE_RATES,
             self::METHOD_GET,
+            [
+                'currencyId' => $currencyId,
+                'amount' => $amount
+            ]
         );
 
         $result = new ExchangeRateListRBXDto();
