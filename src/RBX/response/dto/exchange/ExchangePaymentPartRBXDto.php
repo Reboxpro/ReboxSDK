@@ -27,6 +27,11 @@ class ExchangePaymentPartRBXDto extends BaseRBXDto
     protected ?string $status = null;
 
     /**
+     * @var float|null $commission
+     */
+    protected ?float $commission = null;
+
+    /**
      * @return int|null
      */
     public function getCurrencyId(): ?int
@@ -56,5 +61,13 @@ class ExchangePaymentPartRBXDto extends BaseRBXDto
     public function getStatus(): ?string
     {
         return $this->status;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getCommission(): ?float
+    {
+        return $this->commission;
     }
 }

@@ -10,7 +10,7 @@ class ExchangeInfoRBXDto extends BaseResponseRBXDto
     protected ?string $uid = null;
     protected ?ExchangePaymentPartRBXDto $out = null;
     protected ?ExchangePaymentPartRBXDto $in = null;
-    protected ?ExchangeRuleRBXDto $rules = null;
+    protected ?float $rate = null;
     protected ?string $created_at = null;
     protected ?string $updated_at = null;
 
@@ -18,7 +18,6 @@ class ExchangeInfoRBXDto extends BaseResponseRBXDto
     {
         $this->out = new ExchangePaymentPartRBXDto();
         $this->in = new ExchangePaymentPartRBXDto();
-        $this->rules = new ExchangeRuleRBXDto();
     }
 
     /**
@@ -57,11 +56,11 @@ class ExchangeInfoRBXDto extends BaseResponseRBXDto
     }
 
     /**
-     * @return ExchangeRuleRBXDto|null
+     * @return float|null
      */
-    public function getRules(): ?ExchangeRuleRBXDto
+    public function getRate(): ?float
     {
-        return $this->rules;
+        return $this->rate;
     }
 
     /**
